@@ -50,7 +50,7 @@ $ npm run test
 
 method: GET
 
-``http://localhost:3000/restaurants``
+``http://localhost:3000/restaurants?city=&latitude=&longitude=&distance=``
 
 ```json
 [

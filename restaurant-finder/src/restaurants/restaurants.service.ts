@@ -34,32 +34,16 @@ export class RestaurantsService {
   }
 
   async findAllByParams({ params }: { params: IQueryRestaurantParams }) {
-    // const currentPositionLattitude = params.latitude;
-    // const currentPositionLongitude = params.longitude;
-    // const maxDistance = params.distance;
-    // const city = params.city;
-
-    const currentPositionLattitude = '?';
-    const currentPositionLongitude = '?';
-    const maxDistance = '?';
-    const city = '?';
+    const currentPositionLattitude = params.latitude;
+    const currentPositionLongitude = params.longitude;
+    const maxDistance = params.distance;
+    const city = params.city;
 
     const calculatedDistance = `(6371 * acos( cos( radians(${currentPositionLattitude}) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(${currentPositionLongitude}) ) + sin( radians(${currentPositionLattitude}) ) * sin( radians( latitude ) ) ) )`;
 
-    const sql = `SELECT *, ${calculatedDistance} AS distance FROM restaurants WHERE ${calculatedDistance} <= ${maxDistance} AND city = ${city} ORDER BY distance;`;
+    const sql = `SELECT *, ${calculatedDistance} AS distance FROM restaurants WHERE ${calculatedDistance} <= ${maxDistance} AND city = '${city}' ORDER BY distance;`;
 
-    const response = await this.restaurantRepository.query(sql, [
-      params.latitude,
-      params.longitude,
-      params.latitude,
-      //
-      params.latitude,
-      params.longitude,
-      params.latitude,
-      //
-      params.distance,
-      params.city,
-    ]);
+    const response = await this.restaurantRepository.query(sql);
     return response;
   }
 
