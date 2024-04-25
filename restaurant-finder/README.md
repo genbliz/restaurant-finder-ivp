@@ -40,11 +40,6 @@ $ npm run start
 # unit tests
 $ npm run test
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
 ```
 
 ## API Documentation
@@ -60,7 +55,18 @@ method: GET
 ```json
 [
   {
-
+    "id": "",
+    "name": "",
+    "city": "",
+    "address": "",
+    "rating": null,
+    "price_range_from": null,
+    "price_range_to": null,
+    "latitude": 0,
+    "longitude": 0,
+    "created_at": "",
+    "updated_at": "",
+    "distance": 0
   }
 ]
 ```
@@ -102,7 +108,10 @@ Request
   "city": "",
   "address": "",
   "latitude": 0,
-  "longitude": 0
+  "longitude": 0,
+  "rating": 0,
+  "price_range_from": 0,
+  "price_range_to": 0,
 }
 ```
 
@@ -110,7 +119,17 @@ Response
 
 ```json
 {
-
+    "id": "",
+    "name": "",
+    "city": "",
+    "address": "",
+    "rating": null,
+    "price_range_from": 0,
+    "price_range_to": 0,
+    "latitude": 0,
+    "longitude": 0,
+    "created_at": "",
+    "updated_at": ""
 }
 ```
 
